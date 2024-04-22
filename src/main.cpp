@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
-#include "Graph.h"
+#include "headers/Graph.h"
 
 using namespace std;
 int main() {
@@ -9,7 +9,7 @@ int main() {
 
     srand(time(NULL));
 
-    Graph<int> g1;
+    Graph<int> g1, g2;
 
     // Agregando nodos
     for (int i = 1; i <= 5; ++i)
@@ -36,6 +36,7 @@ int main() {
     }
 
     g1.print();
+    g2 = g1;
     cout << "El grafo no esta vacio, tiene  " << g1.nodeSize() << " nodos, con " <<
           g1.edgeSize() << " aristas." << endl;
     cout << "Quitaremos el nodo 2 del grafo: " << endl;
@@ -52,7 +53,7 @@ int main() {
            g1.edgeSize() << " aristas." << endl;
     }
 
-    cout << "Potencia del nodo 1: " << g1.getPow(1) << endl;
+    cout << "Grado del nodo 1: " << g1.getGrade(1) << endl;
 
     cout << "Limpiaremos el nodo 1: " << endl;
     g1.clearNode(1);
@@ -65,8 +66,18 @@ int main() {
 
     // OPERADOR IGUAL
 
+    cout << "Copiando grafo:" << endl;
+    g2.print(); 
     //BUSQUEDAS
 
+    cout << "conexion entre el nodo 1 y el 2" << endl;
+    if(g2.searchEdge(1, 2)) cout << "Si hay conexion\n";
+    else cout << "No hay conexion\n";
+
+    //LIMPIAR
+    cout << "Vaciando grafo:" << endl;
+    g1.clear();
+    g1.print(); 
 
 
     return 0;

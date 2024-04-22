@@ -103,7 +103,7 @@ void Graph<T>::deleteNode(T value)
         tmp->next->previous = tmp->previous;
     }
 
-    tmp->isolateNode();
+    edgesSize -= tmp->isolateNode();
 
     delete tmp;
     --nodesSize;
@@ -153,16 +153,13 @@ void Graph<T>::clearNode(T value)
     Node *tmpN = getNodeAddress(value);
 
     // Remover todas las aristas del nodo
-    std::cout <<edgesSize << std::endl;
     edgesSize-= tmpN->isolateNode();
-    std::cout <<edgesSize << std::endl ;
-
 }
 //**************************************************************************
 // Metodo para verificar si el grafo esta vacio o no
 // :)
 template <typename T>
-bool Graph<T>::isEmpty()
+bool Graph<T>::isEmpty() const
 {
     return nodesSize == 0 && edgesSize == 0;
 }
@@ -263,7 +260,7 @@ int Graph<T>::edgeSize() const
 // Metodo que regresa la potencia de un nodo
 // :)
 template <typename T>
-int Graph<T>::getPow(T value) const
+int Graph<T>::getGrade(T value) const
 {
     // Puntero a nodo para obtener su ubicacion
     Node *tmpN = getNodeAddress(value);
@@ -271,7 +268,7 @@ int Graph<T>::getPow(T value) const
     // Si el nodo no existe se regresa 0
     if (tmpN == nullptr) return 0;
 
-    return tmpN->power;
+    return tmpN->grade;
 }
 //**************************************************************************
 // Metodo para imprimir todo el grafo
@@ -281,7 +278,10 @@ void Graph<T>::print() const
 {
     Node *tmpN = firstN;
 
-
+    if(tmpN == nullptr){
+        std::cout << "Graph empty" << std::endl;
+        return;
+    }
     while (tmpN != nullptr)
     {
         std::cout << tmpN->value << ":  ";
@@ -293,7 +293,7 @@ void Graph<T>::print() const
             tmpE = tmpE->next;
         }
 
-        std::cout << "\b\b";
+        std::cout << "\b\b ";
         std::cout << "\n";
         tmpN = tmpN->next;
     }
@@ -310,7 +310,7 @@ void Graph<T>::printNode(T value) const
     if (tmpN == nullptr) throw "El nodo no existe";
 
     std::cout << "El nodo con el valor " << tmpN->value << "tiene una potencia de "
-      << tmpN -> power << "y esta conectado con los nodos siguientes: " << std::endl;
+      << tmpN -> grade << "y esta conectado con los nodos siguientes: " << std::endl;
 
     // Puntero a la primera arista del nodo
     Edge *tmpE = tmpN->firstE;
@@ -326,7 +326,7 @@ void Graph<T>::printNode(T value) const
 template <typename T>
 Graph<T>::Node::Node(T name, Graph<T>::Node *next /* nullptr */,
                      Graph<T>::Node *previous /* nullptr */)  :
-                     value(name) , power(0), firstE(nullptr),
+                     value(name) , grade(0), firstE(nullptr),
                      lastE(nullptr), next(next), previous(previous)
                      {}
 
@@ -339,14 +339,14 @@ void Graph<T>::Node::addEdgeInNode(Graph::Node *adj)
     Graph<T>:: Edge *newE = new Graph<T>::Edge(adj, nullptr,lastE);
     (isNodeConnected() ? firstE : lastE-> next) = newE;
     lastE = newE;
-    ++power;
+    ++grade;
 }
 //**************************************************************************
 // Metodo que aisla a un nodo
 template <typename T>
 int Graph<T>::Node::isolateNode()
 {
-    int edgeNum = power;
+    int edgeNum = grade;
     while (!isNodeConnected())
     {
         firstE->adjacent->deleteNodesEdge(this);
@@ -360,7 +360,7 @@ int Graph<T>::Node::isolateNode()
 template <typename T>
 bool Graph<T>::Node::isNodeConnected() const
 {
-    return power == 0;
+    return grade == 0;
 }
 //**************************************************************************
 // Metodo que elimina las aristas de un nodo
@@ -375,7 +375,7 @@ void Graph<T>::Node::deleteNodesEdge(Graph::Node *adj)
     (aux == firstE ? firstE : aux->previous->next) = aux->next;
     (aux == lastE ? lastE : aux->next->previous) = aux->previous;
     delete aux;
-    --power;
+    --grade;
 }
 //**************************************************************************
 // Metodo que devuelve un puntero a la arista del nodo adyacente

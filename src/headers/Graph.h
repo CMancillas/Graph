@@ -18,7 +18,7 @@ public:
 
     void clear();
     void clearNode(T value);
-    bool isEmpty();
+    bool isEmpty() const;
 
     void addEdge(T first, T last);
     void deleteEdge(T first, T last);
@@ -28,7 +28,7 @@ public:
 
     int nodeSize() const;
     int edgeSize() const;
-    int getPow(T value) const;
+    int getGrade(T value) const;
 
     void print() const;
     void printNode(T value) const;
@@ -51,7 +51,7 @@ private:
         int isolateNode();
         Edge *searchNodeAddress(Node *adj);
         T value;
-        int power;
+        int grade;
         Edge *firstE, *lastE;
         Node *next, *previous;
     } *firstN, *lastN;
@@ -59,6 +59,6 @@ private:
     Node *getNodeAddress(T value) const;
 };
 
-#include "Graph.tpp"
+#include "../templates/Graph.tpp"
 
 #endif //GRAPH_GRAPH_H
