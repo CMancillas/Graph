@@ -1,0 +1,85 @@
+\doxysection{Graph.\+h}
+\hypertarget{Graph_8h_source}{}\label{Graph_8h_source}\index{src/headers/Graph.h@{src/headers/Graph.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ GRAPH\_GRAPH\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ GRAPH\_GRAPH\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGraph}{Graph}}\{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{classGraph_a8c626ac04708ae490bba05e1e713cda2}{Graph}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classGraph_a43eab1460b5c8ceaa526b40e56a0fb0c}{\string~Graph}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classGraph_a40cd6da26755eba9cb2fa1accae9e7da}{Graph}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classGraph}{Graph}}\ \&g);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classGraph}{Graph}}\ \&\ \mbox{\hyperlink{classGraph_abe8b765e858de86b9cce901e789e5492}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classGraph}{Graph}}\ \&g);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGraph_aacc61eacbcb09938bab3888243e9ff0d}{addNode}}(T\ value);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGraph_ae755757572b1440e794f7b25bce6841a}{deleteNode}}(T\ value);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGraph_a696224426bb2dd11eccb30a0f0494db4}{clear}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGraph_a2098604f8c0f2563c38f1841bc510cf3}{clearNode}}(T\ value);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classGraph_aee8a44736761e1f929d13e3dd7af9dd4}{isEmpty}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGraph_a55a7047c17b5e5c99a35a84c23073a2d}{addEdge}}(T\ first,\ T\ last);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGraph_ae717a3d0c09ed38c1b5dfcca66cb4a9a}{deleteEdge}}(T\ first,\ T\ last);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classGraph_a703a905b0eb3b0fc405a95718e845d12}{searchNode}}(T\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classGraph_afdd496287a0e7708ba26bac247b299fb}{searchEdge}}(T\ first,\ T\ last)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classGraph_ae2afb352bf2aae573c5f6cd15d8333e9}{nodeSize}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classGraph_ab7e9f8b66bf76e23cc3c8a2bfa90d1e3}{edgeSize}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classGraph_a483a24ead71ca642eeb801f1c8d99a1b}{getGrade}}(T\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGraph_a732a185e24d764a4a3f5229065d116a9}{print}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGraph_a20406f7078283cb3d0afe15956124a17}{printNode}}(T\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{int}\ nodesSize,\ edgesSize;}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{struct\ }Node;}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{struct\ }Edge\{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ Edge(Node\ *adj,\ Edge\ *next\ =\ \textcolor{keyword}{nullptr},\ Edge\ *previous\ =\ \textcolor{keyword}{nullptr},\ \textcolor{keywordtype}{int}\ weight\ =\ 0);}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ Node\ *adjacent;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ Edge\ *next,\ *previous;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ weight;}
+\DoxyCodeLine{00152\ \ \ \ \ \};}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{struct\ }Node\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ Node(T\ name,\ Node\ *next\ =\ \textcolor{keyword}{nullptr},\ Node\ *previous\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ addEdgeInNode(Node\ *adj);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ deleteNodesEdge(Node\ *adj);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isNodeConnected()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ isolateNode();}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ Edge\ *searchNodeAddress(Node\ *adj);}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ T\ value;}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ grade;}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ Edge\ *firstE,\ *lastE;}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ Node\ *next,\ *previous;}
+\DoxyCodeLine{00191\ \ \ \ \ \}\ *firstN,\ *lastN;}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00198\ \ \ \ \ Node\ *getNodeAddress(T\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00199\ \};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#include\ "{}../templates/Graph.tpp"{}}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//GRAPH\_GRAPH\_H}}
+
+\end{DoxyCode}

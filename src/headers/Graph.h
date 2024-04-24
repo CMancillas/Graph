@@ -145,9 +145,10 @@ private:
     struct Node;
 
     struct Edge{
-        Edge(Node *adj, Edge *next = nullptr, Edge *previous = nullptr);
+        Edge(Node *adj, Edge *next = nullptr, Edge *previous = nullptr, int weight = 0);
         Node *adjacent;
         Edge *next, *previous;
+        int weight;
     };
 
     struct Node {

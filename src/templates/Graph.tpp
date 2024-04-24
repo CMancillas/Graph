@@ -397,8 +397,8 @@ typename Graph<T>::Edge * Graph<T>::Node::searchNodeAddress(Graph::Node *adj)
 template <typename T>
 Graph<T>::Edge::Edge(Graph<T>::Node *adj,
                      Graph<T>::Edge *next /* nullptr */,
-                     Graph<T>::Edge *previous /* nullptr */) :
-                     adjacent(adj), next(next), previous(previous)
+                     Graph<T>::Edge *previous /* nullptr */, int weight) :
+                         adjacent(adj), next(next), previous(previous), weight(weight)
 {}
 //**************************************************************************
 // Metodo que devuelve un puntero a direccion en memoria de un nodo

@@ -1,0 +1,308 @@
+\doxysection{Graph\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classGraph}{}\label{classGraph}\index{Graph$<$ T $>$@{Graph$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGraph_a8c626ac04708ae490bba05e1e713cda2}\label{classGraph_a8c626ac04708ae490bba05e1e713cda2} 
+{\bfseries Graph} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto que inicializa un grafo. \end{DoxyCompactList}\item 
+\Hypertarget{classGraph_a43eab1460b5c8ceaa526b40e56a0fb0c}\label{classGraph_a43eab1460b5c8ceaa526b40e56a0fb0c} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Graph} ()
+\begin{DoxyCompactList}\small\item\em Destructor que libera la memoria deL grafo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGraph_a40cd6da26755eba9cb2fa1accae9e7da}{Graph}} (const \mbox{\hyperlink{classGraph}{Graph}} \&g)
+\begin{DoxyCompactList}\small\item\em Constructor de copia. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGraph}{Graph}} \& \mbox{\hyperlink{classGraph_abe8b765e858de86b9cce901e789e5492}{operator=}} (const \mbox{\hyperlink{classGraph}{Graph}} \&g)
+\begin{DoxyCompactList}\small\item\em Sobrecarga del operador de asignaci\'{o}n. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_aacc61eacbcb09938bab3888243e9ff0d}{add\+Node}} (T value)
+\begin{DoxyCompactList}\small\item\em Agrega un nuevo nodo al grafo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_ae755757572b1440e794f7b25bce6841a}{delete\+Node}} (T value)
+\begin{DoxyCompactList}\small\item\em Elimina un nodo del grafo. \end{DoxyCompactList}\item 
+\Hypertarget{classGraph_a696224426bb2dd11eccb30a0f0494db4}\label{classGraph_a696224426bb2dd11eccb30a0f0494db4} 
+void {\bfseries clear} ()
+\begin{DoxyCompactList}\small\item\em Vacia el grafo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_a2098604f8c0f2563c38f1841bc510cf3}{clear\+Node}} (T value)
+\begin{DoxyCompactList}\small\item\em Vacia el nodo a eligir. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGraph_aee8a44736761e1f929d13e3dd7af9dd4}{is\+Empty}} () const
+\begin{DoxyCompactList}\small\item\em Verifica si el grafo esta vacio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_a55a7047c17b5e5c99a35a84c23073a2d}{add\+Edge}} (T first, T last)
+\begin{DoxyCompactList}\small\item\em Agrega un nuevo vertice a los nodos seleccionado del grafo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_ae717a3d0c09ed38c1b5dfcca66cb4a9a}{delete\+Edge}} (T first, T last)
+\begin{DoxyCompactList}\small\item\em Elimina un vertice existente a los nodos seleccionado del grafo. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGraph_a703a905b0eb3b0fc405a95718e845d12}{search\+Node}} (T value) const
+\begin{DoxyCompactList}\small\item\em Busca un nodo en el grafo. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGraph_afdd496287a0e7708ba26bac247b299fb}{search\+Edge}} (T first, T last) const
+\begin{DoxyCompactList}\small\item\em Busca una arista en el grafo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGraph_ae2afb352bf2aae573c5f6cd15d8333e9}{node\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Cuenta el numero de nodos que se encuentran en el grafo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGraph_ab7e9f8b66bf76e23cc3c8a2bfa90d1e3}{edge\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Cuenta el numero de aristas que se encuentran en el grafo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGraph_a483a24ead71ca642eeb801f1c8d99a1b}{get\+Grade}} (T value) const
+\begin{DoxyCompactList}\small\item\em Calcula la potencia de un nodo especifico. \end{DoxyCompactList}\item 
+\Hypertarget{classGraph_a732a185e24d764a4a3f5229065d116a9}\label{classGraph_a732a185e24d764a4a3f5229065d116a9} 
+void {\bfseries print} () const
+\begin{DoxyCompactList}\small\item\em Imprime el grafo completo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_a20406f7078283cb3d0afe15956124a17}{print\+Node}} (T value) const
+\begin{DoxyCompactList}\small\item\em Imprime las aristas del nodo a especificar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Graph$<$ T $>$}
+Esta clase template ofrece una implementaci\'{o}n de grafo (grafica) para agregar, eliminar elementos, y consultar el valor de cada nodo (vertice), entre otras.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Tipo de elementos almacenados en el grafo. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGraph_a40cd6da26755eba9cb2fa1accae9e7da}\label{classGraph_a40cd6da26755eba9cb2fa1accae9e7da} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\mbox{\hyperlink{classGraph}{\+::\+Graph}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$ \&}]{g }\end{DoxyParamCaption})}
+
+
+
+Constructor de copia. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Otro grafo de la cual se copiar\'{a}n los elementos. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGraph_a55a7047c17b5e5c99a35a84c23073a2d}\label{classGraph_a55a7047c17b5e5c99a35a84c23073a2d} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\+::add\+Edge (\begin{DoxyParamCaption}\item[{T}]{first,  }\item[{T}]{last }\end{DoxyParamCaption})}
+
+
+
+Agrega un nuevo vertice a los nodos seleccionado del grafo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & El primer nodo a conectar. \\
+\hline
+{\em last} & El nodo a conectar con el primer nodo. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGraph_aacc61eacbcb09938bab3888243e9ff0d}\label{classGraph_aacc61eacbcb09938bab3888243e9ff0d} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addNode@{addNode}}
+\index{addNode@{addNode}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addNode()}{addNode()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\+::add\+Node (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption})}
+
+
+
+Agrega un nuevo nodo al grafo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & El valor del nodo a agregar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGraph_a2098604f8c0f2563c38f1841bc510cf3}\label{classGraph_a2098604f8c0f2563c38f1841bc510cf3} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!clearNode@{clearNode}}
+\index{clearNode@{clearNode}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{clearNode()}{clearNode()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\+::clear\+Node (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption})}
+
+
+
+Vacia el nodo a eligir. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & El nodo a vaciar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGraph_ae717a3d0c09ed38c1b5dfcca66cb4a9a}\label{classGraph_ae717a3d0c09ed38c1b5dfcca66cb4a9a} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!deleteEdge@{deleteEdge}}
+\index{deleteEdge@{deleteEdge}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{deleteEdge()}{deleteEdge()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\+::delete\+Edge (\begin{DoxyParamCaption}\item[{T}]{first,  }\item[{T}]{last }\end{DoxyParamCaption})}
+
+
+
+Elimina un vertice existente a los nodos seleccionado del grafo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & El primer nodo a desconectar. \\
+\hline
+{\em last} & El nodo a desconectar con el primer nodo. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGraph_ae755757572b1440e794f7b25bce6841a}\label{classGraph_ae755757572b1440e794f7b25bce6841a} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!deleteNode@{deleteNode}}
+\index{deleteNode@{deleteNode}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{deleteNode()}{deleteNode()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\+::delete\+Node (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption})}
+
+
+
+Elimina un nodo del grafo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & El nodo a eliminar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGraph_ab7e9f8b66bf76e23cc3c8a2bfa90d1e3}\label{classGraph_ab7e9f8b66bf76e23cc3c8a2bfa90d1e3} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!edgeSize@{edgeSize}}
+\index{edgeSize@{edgeSize}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{edgeSize()}{edgeSize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\+::edge\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Cuenta el numero de aristas que se encuentran en el grafo. 
+
+\begin{DoxyReturn}{Returns}
+Numero de aristas que se encuentran en el grafo. 
+\end{DoxyReturn}
+\Hypertarget{classGraph_a483a24ead71ca642eeb801f1c8d99a1b}\label{classGraph_a483a24ead71ca642eeb801f1c8d99a1b} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getGrade@{getGrade}}
+\index{getGrade@{getGrade}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getGrade()}{getGrade()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\+::get\+Grade (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Calcula la potencia de un nodo especifico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Nodo a calcular su potencia. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Potencia del nodo. 
+\end{DoxyReturn}
+\Hypertarget{classGraph_aee8a44736761e1f929d13e3dd7af9dd4}\label{classGraph_aee8a44736761e1f929d13e3dd7af9dd4} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Verifica si el grafo esta vacio. 
+
+\begin{DoxyReturn}{Returns}
+true si esta vacio, false en otro caso. 
+\end{DoxyReturn}
+\Hypertarget{classGraph_ae2afb352bf2aae573c5f6cd15d8333e9}\label{classGraph_ae2afb352bf2aae573c5f6cd15d8333e9} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!nodeSize@{nodeSize}}
+\index{nodeSize@{nodeSize}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{nodeSize()}{nodeSize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\+::node\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Cuenta el numero de nodos que se encuentran en el grafo. 
+
+\begin{DoxyReturn}{Returns}
+Numero de nodos que se encuentran en el grafo. 
+\end{DoxyReturn}
+\Hypertarget{classGraph_abe8b765e858de86b9cce901e789e5492}\label{classGraph_abe8b765e858de86b9cce901e789e5492} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classGraph}{Graph}} \& \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$ \&}]{g }\end{DoxyParamCaption})}
+
+
+
+Sobrecarga del operador de asignaci\'{o}n. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Otro grafo del cual se copiar\'{a}n los elementos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referencia al grafo actual. 
+\end{DoxyReturn}
+\Hypertarget{classGraph_a20406f7078283cb3d0afe15956124a17}\label{classGraph_a20406f7078283cb3d0afe15956124a17} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!printNode@{printNode}}
+\index{printNode@{printNode}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{printNode()}{printNode()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\+::print\+Node (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Imprime las aristas del nodo a especificar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Nodo a imprimir. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGraph_afdd496287a0e7708ba26bac247b299fb}\label{classGraph_afdd496287a0e7708ba26bac247b299fb} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!searchEdge@{searchEdge}}
+\index{searchEdge@{searchEdge}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{searchEdge()}{searchEdge()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\+::search\+Edge (\begin{DoxyParamCaption}\item[{T}]{first,  }\item[{T}]{last }\end{DoxyParamCaption}) const}
+
+
+
+Busca una arista en el grafo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Primer nodo conectado a la arista. \\
+\hline
+{\em last} & Segundo/\+Ultimo nodo conectado a la arista. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la arista se encuentra en el grafo, false en otro caso. 
+\end{DoxyReturn}
+\Hypertarget{classGraph_a703a905b0eb3b0fc405a95718e845d12}\label{classGraph_a703a905b0eb3b0fc405a95718e845d12} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!searchNode@{searchNode}}
+\index{searchNode@{searchNode}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{searchNode()}{searchNode()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\+::search\+Node (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Busca un nodo en el grafo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Valor a verificar si esta en el grafo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si el nodo se encuentra en el grafo, false en otro caso. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/Graph.\+h\end{DoxyCompactItemize}
