@@ -11,6 +11,7 @@
 #ifndef GRAPH_GRAPH_H
 #define GRAPH_GRAPH_H
 
+#include "../headers/DoublyLinkedList.hpp"
 /** \class Graph
 *
 * Esta clase template ofrece una implementaci&oacute;n de grafo (grafica)
@@ -22,10 +23,69 @@ para agregar,
 *
 ***/
 
+#include <fstream>
 template <typename T>
 class Graph{
-public:
+private:
+    int nodesSize, edgesSize;
+    struct Node;
 
+    struct Edge{
+        Edge(Node *adj, Edge *next = nullptr, Edge *previous = nullptr, int weight = 0, bool isMarked = false);
+        Node *adjacent;
+        Edge *next, *previous;
+        int weight;
+        bool isMarked;
+    };
+
+    struct Node {
+        Node(T name, Node *next = nullptr, Node *previous = nullptr, bool isMarked = false);
+
+        /**
+         * \brief Conecta los nodos con una arista.
+         * @param adj Nodo adyacente que sera conectado.
+         */
+        void addEdgeInNode(Node *adj, int weight);
+
+        /**
+         * \brief Elimina la arista de los nodos conectados.
+         * @param adj Nodo adyacente que sera desconectado.
+         */
+        void deleteNodesEdge(Node *adj);
+
+        /**
+         * \brief Verifica si el nodo esta conectado.
+         * @return true si esta conectado, false en otro caso.
+         */
+        bool isNodeConnected() const;
+
+        /**
+         * \brief Aisla el nodo.
+         * @return tama;o de la potencia del nodo.
+         */
+        int isolateNode();
+
+        /**
+         * \brief Busca la ubicacion en memoria del nodo.
+         * @param adj Nodo adyacente que sera buscado.
+         * @return Puntero arista al nodo.
+         */
+        Edge *searchNodeAddress(Node *adj);
+        T value;
+        int grade;
+        Edge *firstE, *lastE;
+        Node *next, *previous;
+        bool isMarked;
+    } *firstN, *lastN;
+
+    /**
+     * \brief Obtiene la ubicacion en memoria del nodo.
+     * @param value Nodo a buscar.
+     * @return Puntero a nodo con la ubicacion de memoria.
+     */
+    Node *getNodeAddress(T value) const;
+
+public:
     /**
     ** \brief Constructor por defecto que inicializa un grafo
     */
@@ -84,8 +144,9 @@ public:
      * \brief Agrega un nuevo vertice a los nodos seleccionado del grafo.
      * @param first El primer nodo a conectar.
      * @param last El nodo a conectar con el primer nodo.
+     * @param weight El peso de la arista (por defecto es 0)
      */
-    void addEdge(T first, T last);
+    void addEdge(T first, T last, int weight = 0);
 
     /**
      *
@@ -140,62 +201,11 @@ public:
      */
     void printNode(T value) const;
 
-private:
-    int nodesSize, edgesSize;
-    struct Node;
 
-    struct Edge{
-        Edge(Node *adj, Edge *next = nullptr, Edge *previous = nullptr, int weight = 0);
-        Node *adjacent;
-        Edge *next, *previous;
-        int weight;
-    };
+    int Prim(T v) const;
+    int Prim(const Graph<T> g, T v) const;
 
-    struct Node {
-        Node(T name, Node *next = nullptr, Node *previous = nullptr);
-
-        /**
-         * \brief Conecta los nodos con una arista.
-         * @param adj Nodo adyacente que sera conectado.
-         */
-        void addEdgeInNode(Node *adj);
-
-        /**
-         * \brief Elimina la arista de los nodos conectados.
-         * @param adj Nodo adyacente que sera desconectado.
-         */
-        void deleteNodesEdge(Node *adj);
-
-        /**
-         * \brief Verifica si el nodo esta conectado.
-         * @return true si esta conectado, false en otro caso.
-         */
-        bool isNodeConnected() const;
-
-        /**
-         * \brief Aisla el nodo.
-         * @return tama;o de la potencia del nodo.
-         */
-        int isolateNode();
-
-        /**
-         * \brief Busca la ubicacion en memoria del nodo.
-         * @param adj Nodo adyacente que sera buscado.
-         * @return Puntero arista al nodo.
-         */
-        Edge *searchNodeAddress(Node *adj);
-        T value;
-        int grade;
-        Edge *firstE, *lastE;
-        Node *next, *previous;
-    } *firstN, *lastN;
-
-    /**
-     * \brief Obtiene la ubicacion en memoria del nodo.
-     * @param value Nodo a buscar.
-     * @return Puntero a nodo con la ubicacion de memoria.
-     */
-    Node *getNodeAddress(T value) const;
+    void print(const DoublyLinkedList<Node *>& l) const;
 };
 
 #include "../templates/Graph.tpp"
