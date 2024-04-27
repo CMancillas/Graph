@@ -7,6 +7,7 @@ using namespace std;
 int main() {
 
 
+    try{
     srand(time(NULL));
 
     Graph<int> g1, g2;
@@ -30,7 +31,7 @@ int main() {
                 randNode = rand() % 5 + 1;
             } while (randNode == i);
 
-            g1.addEdge(i, randNode);
+            g1.addEdge(i, randNode, rand()%9);
         }
 
     }
@@ -56,7 +57,7 @@ int main() {
     cout << "Grado del nodo 1: " << g1.getGrade(1) << endl;
 
     cout << "Limpiaremos el nodo 1: " << endl;
-    g1.clearNode(1);
+    //g1.clearNode(1);
     g1.print();
 
 
@@ -74,14 +75,16 @@ int main() {
     if(g2.searchEdge(1, 2)) cout << "Si hay conexion\n";
     else cout << "No hay conexion\n";
 
-    cout<< "Prim: " << g1.Prim(1);
-    cout<< "Prim: " << g2.Prim(1);
+    cout<< "G1 Prim: " << g1.Prim(3) << std::endl;
+    cout<< "G2 Prim: " << g2.Prim(4) << std::endl;
     
     //LIMPIAR
     cout << "Vaciando grafo:" << endl;
     g1.clear();
     g1.print(); 
 
-
+    }catch(const char* msg){
+        std::cout << msg << std::endl;
+    }
     return 0;
 }
