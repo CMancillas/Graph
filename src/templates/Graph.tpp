@@ -1,4 +1,3 @@
-//#include "../headers/DoublyLinkedList.hpp"
 #include <iostream>
 
 //**************************************************************************
@@ -347,78 +346,6 @@ typename Graph<T>::Node *Graph<T>::getNodeAddress(T value) const {
 
   return aux;
 }
-//**************************************************************************
-template <typename T>
-std::ostream& operator<<(std::ostream& os, const typename Graph<T>::Node* g) {
-    os << g->value << " hola";
-    return os;
-}
-
-//************************************************************************************
-// template <typename T>
-// int Graph<T>::Prim(T vertex) const{
-
-//     Node* v = getNodeAddress(vertex);
-//     if(v == nullptr) return 0;
-
-//     int total_weight = 0;
-//     int visit_node = 1;
-//     int less_weight = v->firstE->weight;
-
-//     DoublyLinkedList<T> nodes_marked;
-
-//     nodes_marked.insertLast(v->value);
-
-//     while(visit_node < nodeSize()) {
-//         std::cout << "peso: " << total_weight << "\nnodos visitados: " <<
-//         visit_node << std::endl; std::cout << "nodo actual: " << v->value <<
-//         "\nmenor peso: " << less_weight << std::endl;
-
-//         Edge* e = v->firstE;
-//         Edge* aux = e;
-//         for(int i = 0; i < v->grade; ++i) {
-//             std::cout << "nodo a visitar: (" << aux->adjacent->value << ", "
-//             << aux->weight << ")\n";
-//             if(!nodes_marked.searchValue(aux->adjacent->value) && aux->weight
-//             <= less_weight) {
-//                 less_weight = aux->weight;
-//                 //aux->isMarked = true;
-//                 e = aux;
-//                 std::cout << "nodo nuevo: (" << e->adjacent->value << ", " <<
-//                 e->weight << ")\n peso: " << less_weight << std::endl;
-//             }
-//             aux = aux->next;
-
-//             // if(!nodes_marked.searchValue(aux->adjacent->value)) {
-//             //     if(!aux->isMarked){
-//             //         std::cout << "nodo a visitar: (" <<
-//             aux->adjacent->value << ", "  << aux->weight << ")\n";
-//             //         if(aux->weight <= less_weight){
-//             //             less_weight = v->firstE->weight;
-//             //             e = aux;
-//             //             std::cout << "nodo nuevo: (" << e->adjacent->value
-//             << ", "  << e->weight << ")\n";
-//             //         }
-//             //     }
-//             // }
-//             // aux = aux->next;
-//         }
-//         e->adjacent->searchNodeAddress(v)->isMarked = true;
-//         v = e->adjacent;
-//         ++visit_node;
-//         total_weight += e->weight;
-//         nodes_marked.insertLast(v->value);
-
-//         e->isMarked = true;
-
-//         nodes_marked.printForward();
-//         e = v->firstE;
-
-//         less_weight = e->weight;
-//         std::cout << "\n\n";
-//     }
-//     return total_weight;
-// }
 //************************************************************************************
 
 template <typename T> int Graph<T>::Prim(T vertex) const {
@@ -438,44 +365,41 @@ template <typename T> int Graph<T>::Prim(T vertex) const {
     Edge *e = v->firstE;
     Edge *aux = e;
 
-    less_weight = aux->weight;
     while (visit_node < nodesSize) {
         for (int i = 0; i < nodes_marked.size(); ++i) {
             aux = nodes_marked[i]->firstE;
             for (int j = 0; j < nodes_marked[i]->grade; ++j) {
-               //std::cout << "nodo: "<< nodes_marked[i]->value << " nodo adj: "<< aux->adjacent->value << "\n\n";
                 if(nodes_marked.searchValue(aux->adjacent)) {
-                    //std::cout <<"Nodo " << aux->adjacent->value << " marcado";
                     aux = aux->next;
-                    //std::cout << " nuevo peso: " << less_weight << std::endl;
                     continue;
                 }
                 if (aux->weight <= less_weight || less_weight == -1) {
                     less_weight = aux->weight;
                     e = aux;
-                    //std::cout << "nodo nuevo: (" << e->adjacent->value << ", " <<
-                    //e->weight << ")\npeso: " << less_weight << std::endl;
                 }
                 aux = aux->next;
             }
         }
 
         v = e->adjacent;
-        ++visit_node;
+        ++visit_node; 
         total_weight += e->weight;
-        nodes_marked.insertLast(v);
+        if(!nodes_marked.searchValue(v))
+            nodes_marked.insertLast(v);
 
         less_weight = -1;
     }
-    print(nodes_marked);
+    print(nodes_marked, total_weight);
+    if(nodes_marked.size() < nodesSize) throw "No es conexa";
     return total_weight;
 }
 //************************************************************************************
 template <typename T>
-void Graph<T>::print(const DoublyLinkedList<Node *>& l) const{
-    std::cout << "(";
+void Graph<T>::print(const DoublyLinkedList<Node *>& l, int weight) const{
+    std::cout << "[g = (";
     for(int i = 0; i < l.size(); ++i){
         std::cout << l[i]->value << ", ";
     }
-    std::cout << "\b\b)\n";
+    std::cout << "\b\b), w = " << weight << "]\n";
 }
+//************************************************************************************

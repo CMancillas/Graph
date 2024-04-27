@@ -23,7 +23,6 @@ para agregar,
 *
 ***/
 
-#include <fstream>
 template <typename T>
 class Graph{
 private:
@@ -85,6 +84,8 @@ private:
      */
     Node *getNodeAddress(T value) const;
 
+    
+    void print(const DoublyLinkedList<Node *>& l, int weight) const;
 public:
     /**
     ** \brief Constructor por defecto que inicializa un grafo
@@ -201,11 +202,12 @@ public:
      */
     void printNode(T value) const;
 
-
+    /**
+     * \brief Encuentra el árbol de expansión con menor peso.
+     * @param v Vértice que desea encontrar su árbol
+     */
     int Prim(T v) const;
-    int Prim(const Graph<T> g, T v) const;
 
-    void print(const DoublyLinkedList<Node *>& l) const;
 };
 
 #include "../templates/Graph.tpp"
